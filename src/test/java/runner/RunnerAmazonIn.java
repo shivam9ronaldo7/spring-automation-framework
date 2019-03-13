@@ -5,10 +5,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
 		features = "src/test/resources",
-		glue={"stepDefination","utitlity"},
-		tags= {"@test1"},
-		monochrome=true
+		glue={"stepDefination"/*,"utitlity"*/},
+		tags= {"@tag"},
+		monochrome=true,
+		plugin= {"utitlity.ExtentFormatterReporter"}
 		)
-public class RunnerAmazonIn extends AbstractTestNGCucumberTests{
-		
-}
+public class RunnerAmazonIn extends AbstractTestNGCucumberTests{}

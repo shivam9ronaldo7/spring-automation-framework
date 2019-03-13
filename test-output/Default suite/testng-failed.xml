@@ -6,7 +6,7 @@
       <class name="runner.RunnerAmazonIn">
         <methods>
           <include name="setUpClass"/>
-          <include name="feature" invocation-numbers="0"/>
+          <include name="runScenario" invocation-numbers="0 1 2 3 4 5"/>
           <include name="tearDownClass"/>
         </methods>
       </class> <!-- runner.RunnerAmazonIn -->

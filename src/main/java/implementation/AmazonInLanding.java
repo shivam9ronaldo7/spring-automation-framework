@@ -5,17 +5,15 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import utitlity.CucumberHooks;
 import utitlity.Utilities;
 
 public class AmazonInLanding {
 	private WebDriver driver;
 	private Utilities utility;
-	public AmazonInLanding(CucumberHooks hooks, Utilities utility) {
-		this.driver = hooks.driver;
+	public AmazonInLanding(Utilities utility) {
+		this.driver = utility.driver;
 		this.utility = utility;
 	}
 	

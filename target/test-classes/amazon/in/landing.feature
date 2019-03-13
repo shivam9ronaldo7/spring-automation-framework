@@ -3,9 +3,11 @@
 @amazonin
 Feature: To check landing page functionality
 
+Background: User is on the page
+Given I enter url "https://www.amazon.in"
+
   @test1
-  Scenario: Check 39 options are available in categories dropdown besides search box in sorting order
-    Given I enter url "https://www.amazon.in"
+  Scenario: Check 39 options are available in categories dropdown besides search box in sorting order  
     When I click on dropdown besides search box
     Then dropdown is opened
     And it contains 39 options
