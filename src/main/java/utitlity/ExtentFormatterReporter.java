@@ -36,7 +36,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private final TestSourcesModel testSources = new TestSourcesModel();
 	private String currentFeatureFile;
 
-	//Builds a new report using the html template
 	private ExtentHtmlReporter htmlReporter = null;
 	private ExtentReports extent = null;
 	private ExtentTest feature = null;
@@ -59,7 +58,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private EventHandler<TestRunStarted> runStartedHandler = new EventHandler<TestRunStarted>() {
 		@Override
 		public void receive(TestRunStarted event) {
-			//Calling method that will be called when TestRunStarted
 			handleTestRunStarted(event);
 		}
 	};
@@ -67,7 +65,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private EventHandler<TestSourceRead> testSourceReadHandler = new EventHandler<TestSourceRead>() {
 		@Override
 		public void receive(TestSourceRead event) {
-			//Calling method to read feature file
 			handleTestSourceRead(event);
 		}
 	};
@@ -75,7 +72,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private EventHandler<TestCaseStarted> caseStartedHandler = new EventHandler<TestCaseStarted>() {
 		@Override
 		public void receive(TestCaseStarted event) {
-			//Calling method that will be called when TestCaseStarted
 			handleTestCaseStarted(event);
 		}
 	};
@@ -83,7 +79,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private EventHandler<TestStepStarted> stepStartedHandler = new EventHandler<TestStepStarted>() {
 		@Override
 		public void receive(TestStepStarted event) {
-			//Calling method that will be called when TestStepStarted
 			handleTestStepStarted(event);
 		}
 	};
@@ -91,7 +86,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private EventHandler<TestStepFinished> stepFinishedHandler = new EventHandler<TestStepFinished>() {
 		@Override
 		public void receive(TestStepFinished event) {
-			//Calling method that will be called when TestStepFinished
 			handleTestStepFinished(event);
 		}
 	};
@@ -99,7 +93,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private EventHandler<TestCaseFinished> caseFinishedHandler = new EventHandler<TestCaseFinished>() {
 		@Override
 		public void receive(TestCaseFinished event) {
-			//Calling method that will be called when TestCaseFinished
 			handleTestCaseFinished(event);
 		}
 	};
@@ -107,7 +100,6 @@ public class ExtentFormatterReporter implements EventListener{
 	private EventHandler<TestRunFinished> runFinishedHandler = new EventHandler<TestRunFinished>() {
 		@Override
 		public void receive(TestRunFinished event) {
-			//Calling method that will be called when TestRunFinished
 			handleTestRunFinished(event);
 		}
 	};
@@ -125,28 +117,23 @@ public class ExtentFormatterReporter implements EventListener{
 		}
 	};
 
-	//Called at the beginning of the test run
 	private void handleTestRunStarted(TestRunStarted event) {
 		attachExtentHtmlReporter();
 		configureExtentHtmlReporter();
 	}
 
-	//Called when the contents of a new feature file have been read
 	private void handleTestSourceRead(TestSourceRead event) {
 		testSources.addTestSourceReadEvent(event.uri, event);
 	}
 
-	//Called at the beginning of the test case
 	private void handleTestCaseStarted(TestCaseStarted event) {
 		handleStartOfFeature(event.testCase);
 		createTestCase(event.testCase);
 	}
 
-	//Called at the beginning of the test step
 	private void handleTestStepStarted(TestStepStarted event) {		
 	}
 
-	//Called at the end of the test step
 	private void handleTestStepFinished(TestStepFinished event) {
 		if (event.testStep instanceof PickleStepTestStep) {
 			PickleStepTestStep testStep = (PickleStepTestStep) event.testStep;
@@ -154,12 +141,10 @@ public class ExtentFormatterReporter implements EventListener{
 		}
 	}
 
-	//Called at the end of the test case
 	private void handleTestCaseFinished(TestCaseFinished event) {
 		endTestCase();
 	}
 
-	//Called at the end of the test run
 	private void handleTestRunFinished(TestRunFinished event) {
 		generateExtentHtmlReporter();
 	}
@@ -168,19 +153,14 @@ public class ExtentFormatterReporter implements EventListener{
 
 	private void handleWrite(WriteEvent event) {}
 
-	//Method to attach ExtentHtmlReporter
 	private void attachExtentHtmlReporter() {
-		//Initialize the HtmlReporter
 		htmlReporter = new ExtentHtmlReporter("C:\\Users\\student_v\\Desktop\\ExtentReport\\Test.html");
-		//Initialize ExtentReports and attach the HtmlReporter
 		extent = new ExtentReports();
 		extent.setSystemInfo("OS", System.getProperty("os.name"));
 		extent.attachReporter(htmlReporter);
 	}
 
-	//Method to configure ExtentHtmlReporter
 	private void configureExtentHtmlReporter() {
-		//Configuration items to change the look and feel
 		htmlReporter.config().setDocumentTitle("SHIVAM EXECUTION REPORT");
 		htmlReporter.config().setTheme(Theme.DARK);
 		htmlReporter.config().setProtocol(Protocol.HTTPS);
@@ -192,13 +172,10 @@ public class ExtentFormatterReporter implements EventListener{
 		htmlReporter.config().setTimeStampFormat("MMM dd, yyyy HH:mm:ss");
 	}
 
-	//Method to generate ExtentHtmlReporter
 	private void generateExtentHtmlReporter() {
-		//To write or update test information to reporter
 		extent.flush();
 	}
 
-	//Method to create Scenario or Scenario Outline
 	private void createScenario(ScenarioDefinition scenarioDefinition, TestCase testCase) {		
 		switch(scenarioDefinition.getKeyword()) {
 		case "Scenario": scenario = feature.createNode(Scenario.class, (testCase.getName()+"\n"+
@@ -212,7 +189,6 @@ public class ExtentFormatterReporter implements EventListener{
 		
 	}
 	
-	//Method to create Steps
 	private void createSteps(Step step, PickleStepTestStep testStep, Result result) {
 		switch(step.getKeyword()) {
 		case "Given ": stepStatus(scenario.createNode(Given.class, testStep.getStepText()),result);
@@ -227,7 +203,6 @@ public class ExtentFormatterReporter implements EventListener{
 		}
 	}
 	
-	//Method to select type of Steps
 	private void stepStatus(ExtentTest test, Result result) {
 		switch(result.getStatus().toString()) {
 		case "PASSED": test.pass("Pass");
@@ -244,45 +219,34 @@ public class ExtentFormatterReporter implements EventListener{
 		}
 	}
 
-	//Method to store address of Feature file
 	private void handleStartOfFeature(TestCase testCase) {
 		if (currentFeatureFile == null || !currentFeatureFile.equals(testCase.getUri())) {
 			currentFeatureFile = null;
 			currentFeatureFile = testCase.getUri();
 			createFeatureName(testCase.getName());
-			//System.out.println("currentFeatureFile: "+currentFeatureFile);
 		}
 	}
 	
-	//Method to create Feature name
 	private void createFeatureName(String currentFeatureFile) {
 		feature = extent.createTest(Feature.class, currentFeatureFile);
 	}
 
-	//Method to create Scenario name
 	private void createTestCase(TestCase testCase) {
 		TestSourcesModel.AstNode astNode = testSources.getAstNode(currentFeatureFile, testCase.getLine());
 		if (astNode != null) {
 			ScenarioDefinition scenarioDefinition = TestSourcesModel.getScenarioDefinition(astNode);
 			createScenario(scenarioDefinition, testCase);
-			//System.out.println(scenarioDefinition.getKeyword()+(testCase.getName()+"\n"+
-			//((scenarioDefinition.getDescription() != null) ? ("\n"+scenarioDefinition.getDescription()) : "")));
 		}
 	}
 
-	//Method to create Test Step
 	private void createTestStep(PickleStepTestStep testStep, Result result) {
 		TestSourcesModel.AstNode astNode = testSources.getAstNode(currentFeatureFile, testStep.getStepLine());
 		if (astNode != null) {
 			Step step = (Step) astNode.node;
 			createSteps(step, testStep, result);
-			//System.out.print(step.getKeyword()+testStep.getStepText());
-			//System.out.println("-->"+result.getStatus());
-			//System.out.println(result.getDuration()+" "+((result.getError()!=null)?result.getError():""));
 		}
 	}
 	
-	//Method to end Scenario
 	private void endTestCase() {
 		scenario = null;
 	}
