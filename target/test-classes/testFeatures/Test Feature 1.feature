@@ -1,9 +1,9 @@
 #Author: shivam9ronaldo7@gmail.com
-@tag
+@ttag1
 Feature: Title of your feature1
   I want to use this template for my feature file
 
-  @tag1
+  @ttag1.1
   Scenario: Title of your scenario1.1
     Given I want to write a step with precondition
     And some other precondition
@@ -13,7 +13,7 @@ Feature: Title of your feature1
     Then I validate the outcomes
     And check more outcomes
 
-  @tag2
+  @ttag1.2
   Scenario Outline: Title of your scenario outline1.2
     Given I want to write a step with <name>
     When I check for the <value> in step

@@ -14,13 +14,12 @@ public class AmazonInLandingStep {
 	
 	@Given("^I enter url \"([^\"]*)\"$")
 	public void i_enter_url(String url) throws Throwable {
-		//azLand.enterUrl(url);
+		azLand.enterUrl(url);
 	}
 	
 	@When("^I click on dropdown besides search box$")
 	public void i_click_on_dropdown_besides_search_box() throws Throwable {
-		//azLand.clickOnDropdownBesidesSearchBox();
-		//Assert.assertFalse(true);
+		azLand.clickOnDropdownBesidesSearchBox();
 	}
 
 	@Then("^dropdown is opened$")
@@ -29,22 +28,21 @@ public class AmazonInLandingStep {
 
 	@Then("^it contains (\\d+) options$")
 	public void it_contains_options(int size) throws Throwable {
-		//azLand.dropdownOptionsCount(size);
+		azLand.dropdownOptionsCount(size);
 	}
 
 	@Then("^options are present in sorting order$")
 	public void options_are_present_in_sorting_order() throws Throwable {
-		//throw new Exception();
 	}
 
 	@When("^user selects any value from dropdown$")
 	public void user_selects_any_value_from_dropdown() throws Throwable {
-		//azLand.userSelectsAnyValueFromDropdown();
+		azLand.userSelectsAnyValueFromDropdown();
 	}
 
 	@Then("^that option is displayed on the dropdown$")
 	public void that_option_is_displayed_on_the_dropdown() throws Throwable {
-		//azLand.optionIsDisplayedOnTheDropdown();
+		azLand.optionIsDisplayedOnTheDropdown();
 	}
 
 }

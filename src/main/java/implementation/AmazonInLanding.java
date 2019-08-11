@@ -22,11 +22,15 @@ public class AmazonInLanding {
 			driver.get(url);
 		} catch (Exception e) {
 			Assert.assertTrue(false, "Unable to load "+url);
+			e.printStackTrace();
 		}
 	}
 	
 	public void clickOnDropdownBesidesSearchBox() {
 		try {
+			utility.highLighterMethod(driver, driver.findElement(By.xpath(utility
+					.getProperty(getClass()
+					.getSimpleName(), "searchCategoriesOptionsDropdown"))));
 			driver.findElement(By.xpath(utility
 					.getProperty(getClass()
 					.getSimpleName(), "searchCategoriesOptionsDropdown")))
@@ -75,6 +79,9 @@ public class AmazonInLanding {
 	public void optionIsDisplayedOnTheDropdown() {
 		String text = null;
 		try {
+			utility.highLighterMethod(driver, driver.findElement(By.xpath(utility
+					.getProperty(getClass()
+					.getSimpleName(), "searchCategoriesSelectedOption"))));
 			text = driver.findElement(By.xpath(utility
 					.getProperty(getClass()
 					.getSimpleName(), "searchCategoriesSelectedOption")))
