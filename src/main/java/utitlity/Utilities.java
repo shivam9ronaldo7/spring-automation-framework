@@ -89,8 +89,9 @@ public class Utilities {
 		LOG.traceExit("browserSetup(browser)");
 	}
 
-	public void pdfReader(String filePath) throws InvalidPasswordException, IOException {
+	public String pdfReader(String filePath) throws InvalidPasswordException, IOException {
 		LOG.traceEntry("pdfReader(filePath)");
+		String pdfFileInText = null;
 		try (PDDocument document = PDDocument
 				.load(new File(filePath))) {
 			document.getClass();
@@ -98,13 +99,10 @@ public class Utilities {
 				PDFTextStripperByArea stripper = new PDFTextStripperByArea();
 				stripper.setSortByPosition(true);
 				PDFTextStripper tStripper = new PDFTextStripper();
-				String pdfFileInText = tStripper.getText(document);
-				String lines[] = pdfFileInText.split("\\r?\\n");
-				for (String line : lines) {
-					System.out.println(line);
-				}
+				pdfFileInText = tStripper.getText(document);
 			}
 		}
 		LOG.traceExit("pdfReader(filePath)");
+		return pdfFileInText;
 	}
 }
