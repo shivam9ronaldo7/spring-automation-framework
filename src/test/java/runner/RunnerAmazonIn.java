@@ -20,11 +20,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		plugin= {"com.report.CucumberExtent:target/cucumber-extent-reports/report.html"}
 		)
 public class RunnerAmazonIn extends AbstractTestNGCucumberTests{
-	/*@Override
+	@Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {
         return super.scenarios();
-    }*/
+    }
 	private static final Logger LOG = LogManager.getLogger();
 	
 	@BeforeClass

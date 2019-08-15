@@ -2,7 +2,8 @@
 <Configuration status="WARN">
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</Console>
 		<!-- <File name="File" fileName="logs/app.log" immediateFlush="true" append="false"> 
 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} 
@@ -10,25 +11,28 @@
 		<Routing name="MyRoutingAppender">
 			<Routes pattern="${ctx:logFileName}">
 				<Route>
-					<RollingFile name="Rolling-${ctx:logFileName}" fileName="logs/${ctx:logFileName}" filePattern="logs/${ctx:logFileName}.%i.log.gz" append="false">
-						<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-						<SizeBasedTriggeringPolicy size="10 MB" />
-					</RollingFile>
+					<RollingFile name="Rolling-${ctx:logFileName}" fileName="logs/${ctx:logFileName}" 
+						filePattern="logs/${ctx:logFileName}.%i.log.gz" append="false"> <PatternLayout 
+						pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" 
+						/> <SizeBasedTriggeringPolicy size="10 MB" /> </RollingFile>
 				</Route>
 				<Route ref="Console" key="${ctx:logFileName}" />
 			</Routes>
 		</Routing>
 	</Appenders>
 	<Loggers>
-		<Logger name="runner.RunnerAmazonIn" level="all" additivity="false">
+		<Logger name="runner.RunnerAmazonIn" level="all"
+			additivity="false">
 			<AppenderRef ref="Console" />
 			<AppenderRef ref="MyRoutingAppender" />
 		</Logger>
-		<Logger name="stepDefination.TestFeaturesStep" level="all" additivity="false">
+		<Logger name="stepDefination.TestFeaturesStep" level="all"
+			additivity="false">
 			<AppenderRef ref="Console" />
 			<AppenderRef ref="MyRoutingAppender" />
 		</Logger>
-		<Logger name="utitlity.Utilities" level="all" additivity="false">
+		<Logger name="utitlity.Utilities" level="all"
+			additivity="false">
 			<AppenderRef ref="Console" />
 			<AppenderRef ref="MyRoutingAppender" />
 		</Logger>

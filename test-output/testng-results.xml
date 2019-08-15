@@ -2,23 +2,23 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="988" started-at="2019-08-11T18:50:54Z" finished-at="2019-08-11T18:50:55Z">
+  <suite name="Default suite" duration-ms="1279" started-at="2019-08-15T04:33:20Z" finished-at="2019-08-15T04:33:21Z">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="988" started-at="2019-08-11T18:50:54Z" finished-at="2019-08-11T18:50:55Z">
+    <test name="Default test" duration-ms="1279" started-at="2019-08-15T04:33:20Z" finished-at="2019-08-15T04:33:21Z">
       <class name="runner.RunnerAmazonIn">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="setUpClass" is-config="true" duration-ms="113" started-at="2019-08-11T18:50:54Z" finished-at="2019-08-11T18:50:54Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="setUpClass" is-config="true" duration-ms="147" started-at="2019-08-15T04:33:20Z" finished-at="2019-08-15T04:33:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="beforeMethod" is-config="true" duration-ms="31" started-at="2019-08-11T18:50:54Z" finished-at="2019-08-11T18:50:54Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="beforeMethod" is-config="true" duration-ms="52" started-at="2019-08-15T04:33:20Z" finished-at="2019-08-15T04:33:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="runScenario" duration-ms="228" started-at="2019-08-11T18:50:54Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2019-08-11T18:50:54Z">
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="runScenario" duration-ms="332" started-at="2019-08-15T04:33:20Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2019-08-15T04:33:20Z">
           <params>
             <param index="0">
               <value>
@@ -34,7 +34,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="runScenario" duration-ms="8" started-at="2019-08-11T18:50:54Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2019-08-11T18:50:54Z">
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="runScenario" duration-ms="332" started-at="2019-08-15T04:33:20Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2019-08-15T04:33:20Z">
           <params>
             <param index="0">
               <value>
@@ -50,14 +50,14 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="tearDownClass" is-config="true" duration-ms="543" started-at="2019-08-11T18:50:54Z" finished-at="2019-08-11T18:50:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-08-11T18:50:54Z" finished-at="2019-08-11T18:50:54Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-08-15T04:33:20Z" finished-at="2019-08-15T04:33:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runner.RunnerAmazonIn@51399530]" name="tearDownClass" is-config="true" duration-ms="659" started-at="2019-08-15T04:33:20Z" finished-at="2019-08-15T04:33:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
       </class> <!-- runner.RunnerAmazonIn -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
