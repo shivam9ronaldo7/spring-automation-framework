@@ -11,7 +11,7 @@ import java.util.Properties;
 public class JavaEmail {
 	public static void main(String[] args) throws MessagingException {
 		final String username = "shivam9ronaldo7@gmail.com";
-		final String password = "oriugxntvtywvjcr";
+		final String password = "";
 		sendEmail(username, password);
 		checkMail(username, password);
 	}
