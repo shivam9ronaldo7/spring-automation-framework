@@ -1,57 +1,39 @@
 package stepDefination;
 
-import org.apache.logging.log4j.LogManager;
+import annotations.Log;
+import exceptions.UnImplementedCallException;
+import exceptions.UnmatchedCaseException;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.ThreadContext;
+import org.openqa.selenium.By;
+import org.springframework.beans.factory.annotation.Autowired;
+import utility.ReportUtil;
+import utility.WebDriverUtil;
 
-import cucumber.api.java8.En;
+public class TestFeaturesStep {
 
-public class TestFeaturesStep implements En {
-	private static final Logger LOG = LogManager.getLogger();
-	public TestFeaturesStep() {
-		ThreadContext.put("logFileName", Thread.currentThread().getName());
-		Given("I want to write a step with precondition", () -> {
-			LOG.trace("I want to write a step with precondition");
-		});
+	@Log
+	private Logger logger;
 
-		Given("some other precondition", () -> {
-			LOG.trace("some other precondition");
-		});
+	@Autowired
+	private WebDriverUtil webDriverUtil;
 
-		When("I complete action", () -> {
-			LOG.trace("I complete action");
-		});
+	@Autowired
+	private ReportUtil reportUtil;
 
-		When("some other action", () -> {
-			LOG.trace("some other action");
-		});
+	@Given("open {string}")
+	public void open(String string) throws UnImplementedCallException, UnmatchedCaseException {
+		webDriverUtil.openUrl(string);
+		reportUtil.attchLogToReport("Web page opened");
+		reportUtil.attchScreenshotToReport();
+	}
+	@Then("I verify the {string} is loaded")
+	public void i_verify_the_is_loaded(String string) {
+		webDriverUtil.visibilityOfElement(By.xpath(string));
+		reportUtil.attchLogToReport("Element searched");
+		reportUtil.attchScreenshotToReport();
+	}
 
-		When("yet another action", () -> {
-			LOG.trace("yet another action");
-		});
-
-		Then("I validate the outcomes", () -> {
-			LOG.trace("I validate the outcomes");
-		});
-
-		Then("check more outcomes", () -> {
-			LOG.trace("check more outcomes");
-		});
-
-		Given("I want to write a step with name{int}", (Integer int1) -> {
-			LOG.trace("I want to write a step with name{int}");
-		});
-
-		When("I check for the {int} in step", (Integer int1) -> {
-			LOG.trace("I check for the {int} in step");
-		});
-
-		Then("I verify the success in step", () -> {
-			LOG.trace("I verify the success in step");
-		});
-
-		Then("I verify the Fail in step", () -> {
-			LOG.trace("I verify the Fail in step");
-		});
-	}	
 }
